@@ -287,5 +287,16 @@
     <footer>
         <p>&copy; 2026 Landon Lawns LLC. All rights reserved.</p>
     </footer>
+
+    <script>
+        const form = document.querySelector('form[name="quote-request"]');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                setTimeout(() => {
+                    window.location.href = '/thanks.html';
+                }, 1000);
+            });
+        }
+    </script>
 </body>
 </html>
