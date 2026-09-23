@@ -1,0 +1,12 @@
+[build]
+  command = ""
+  publish = "."
+
+[[redirects]]
+  from = "/quote-request"
+  to = "/thanks.html"
+  status = 200
+  force = false
+
+[[form]]
+  name = "quote-request"

@@ -234,8 +234,8 @@
             <h2>Get a Free Quote</h2>
             <p style="margin-bottom: 20px;">Pricing varies based on lawn size. Fill out the form below and we'll assess your property and send you a custom quote for your lawn care needs.</p>
             
-            <form name="quote-request" method="POST" action="/thanks.html" netlify>
-                <input type="hidden" name="form-name" value="quote-request">
+            <form name="quote-request" method="POST" netlify netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="quote-request" />
                 <div class="form-row">
                     <div>
                         <label for="name">Name *</label>
