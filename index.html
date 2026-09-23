@@ -264,7 +264,7 @@
             <h2>Get a Free Quote</h2>
             <p style="margin-bottom: 20px;">Pricing varies based on lawn size. Fill out the form below and we'll assess your property and send you a custom quote for your lawn care needs.</p>
             
-            <form name="quote-request" method="POST" netlify>
+            <form name="quote-request" method="POST" id="quoteForm">
                 <input type="hidden" name="form-name" value="quote-request" />
                 <div class="form-row">
                     <div>
@@ -319,30 +319,35 @@
     </footer>
 
     <script>
-        document.querySelector('form[name="quote-request"]').addEventListener('submit', function(e) {
-            e.preventDefault(); // Stop the default form submission
+        const form = document.getElementById('quoteForm');
+        
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            // Manually submit the form data to Netlify
-            const formData = new FormData(this);
+            const formData = new FormData(form);
+            const data = new URLSearchParams(formData);
             
+            // Send to Netlify
             fetch('/', {
                 method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: data.toString()
             }).then(() => {
-                // After submission succeeds, show thank you message
+                // Show thank you
                 document.getElementById('thankYouMessage').classList.add('show');
-                document.querySelector('form').style.display = 'none';
+                form.style.display = 'none';
                 document.querySelector('.form-section h2').style.display = 'none';
                 document.querySelector('.form-section').style.backgroundColor = 'transparent';
                 document.querySelector('.form-section').style.padding = '0';
                 document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
-            }).catch(error => {
-                console.error('Form submission error:', error);
-                // Still show thank you message even if there's an error
+            }).catch(err => {
+                // Even on error, show thank you
                 document.getElementById('thankYouMessage').classList.add('show');
-                document.querySelector('form').style.display = 'none';
+                form.style.display = 'none';
             });
+            
+            return false;
         });
     </script>
 </body>
