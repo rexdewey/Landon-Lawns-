@@ -320,16 +320,29 @@
 
     <script>
         document.querySelector('form[name="quote-request"]').addEventListener('submit', function(e) {
-            // Show thank you message
-            setTimeout(function() {
+            e.preventDefault(); // Stop the default form submission
+            
+            // Manually submit the form data to Netlify
+            const formData = new FormData(this);
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            }).then(() => {
+                // After submission succeeds, show thank you message
                 document.getElementById('thankYouMessage').classList.add('show');
                 document.querySelector('form').style.display = 'none';
                 document.querySelector('.form-section h2').style.display = 'none';
                 document.querySelector('.form-section').style.backgroundColor = 'transparent';
                 document.querySelector('.form-section').style.padding = '0';
-                // Scroll to the message
                 document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
-            }, 500);
+            }).catch(error => {
+                console.error('Form submission error:', error);
+                // Still show thank you message even if there's an error
+                document.getElementById('thankYouMessage').classList.add('show');
+                document.querySelector('form').style.display = 'none';
+            });
         });
     </script>
 </body>
