@@ -288,5 +288,14 @@
     <footer>
         <p>&copy; 2026 Landon Lawns LLC. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.querySelector('form[name="quote-request"]').addEventListener('submit', function() {
+            // Let Netlify process the form, then redirect
+            setTimeout(function() {
+                window.location.href = '/thanks.html';
+            }, 500);
+        });
+    </script>
 </body>
 </html>
