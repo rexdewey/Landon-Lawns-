@@ -60,6 +60,30 @@
             margin: 40px 0;
         }
 
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            background: #e8f5e9;
+            border: 2px solid #4a7c2c;
+            border-radius: 8px;
+            padding: 40px 20px;
+            margin: 40px 0;
+        }
+
+        .thank-you-message.show {
+            display: block;
+        }
+
+        .thank-you-message h2 {
+            color: #2d5016;
+            margin-bottom: 15px;
+        }
+
+        .thank-you-message p {
+            color: #333;
+            font-size: 1.05rem;
+        }
+
         h2 {
             color: #2d5016;
             margin-bottom: 25px;
@@ -205,6 +229,12 @@
     </header>
 
     <div class="container">
+        <div class="thank-you-message" id="thankYouMessage">
+            <h2>Thank You!</h2>
+            <p>We've received your quote request and appreciate your interest in Landon Lawns LLC.</p>
+            <p>We'll review your information and get back to you as soon as possible with a custom quote for your lawn care needs.</p>
+        </div>
+
         <section>
             <h2>Our Services</h2>
             <div class="services">
@@ -236,7 +266,6 @@
             
             <form name="quote-request" method="POST" netlify>
                 <input type="hidden" name="form-name" value="quote-request" />
-                <input type="hidden" name="_redirect" value="/thanks.html" />
                 <div class="form-row">
                     <div>
                         <label for="name">Name *</label>
@@ -290,10 +319,16 @@
     </footer>
 
     <script>
-        document.querySelector('form[name="quote-request"]').addEventListener('submit', function() {
-            // Let Netlify process the form, then redirect
+        document.querySelector('form[name="quote-request"]').addEventListener('submit', function(e) {
+            // Show thank you message
             setTimeout(function() {
-                window.location.href = '/thanks.html';
+                document.getElementById('thankYouMessage').classList.add('show');
+                document.querySelector('form').style.display = 'none';
+                document.querySelector('.form-section h2').style.display = 'none';
+                document.querySelector('.form-section').style.backgroundColor = 'transparent';
+                document.querySelector('.form-section').style.padding = '0';
+                // Scroll to the message
+                document.getElementById('thankYouMessage').scrollIntoView({ behavior: 'smooth' });
             }, 500);
         });
     </script>
