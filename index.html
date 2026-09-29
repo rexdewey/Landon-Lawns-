@@ -4,11 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landon Lawns LLC - Professional Lawn Care in Treasure Valley, Idaho</title>
+    <meta name="description" content="Landon Lawns LLC offers weekly, bi-weekly and monthly mowing plus spring and fall cleanups in the Treasure Valley, Idaho. Request a free custom quote.">
+    <link rel="canonical" href="https://landonlawns.netlify.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Landon Lawns LLC - Lawn Care in Treasure Valley, Idaho">
+    <meta property="og:description" content="Mowing and seasonal cleanups in the Treasure Valley. Get a free custom quote.">
+    <meta property="og:url" content="https://landonlawns.netlify.app/">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Landon Lawns LLC",
+      "url": "https://landonlawns.netlify.app/",
+      "telephone": "+1-208-697-6295",
+      "email": "landonlawnsllc@gmail.com",
+      "areaServed": "Treasure Valley, Idaho",
+      "description": "Lawn mowing and spring/fall cleanup services in the Treasure Valley, Idaho."
+    }
+    </script>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -44,6 +66,38 @@
             text-decoration: none;
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
             transition: border-color 0.2s;
+        }
+
+        .hero-buttons {
+            margin-top: 22px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons a {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #2d5016;
+            border: 2px solid white;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+        }
+
+        .hero-buttons a:hover {
+            opacity: 0.9;
         }
 
         .contact-info a:hover {
@@ -202,6 +256,10 @@
         <div class="contact-info">
             <p><a href="tel:2086976295">(208) 697-6295</a> • <a href="mailto:landonlawnsllc@gmail.com">landonlawnsllc@gmail.com</a></p>
         </div>
+        <div class="hero-buttons">
+            <a href="#quote" class="btn-primary">Get a Free Quote</a>
+            <a href="tel:2086976295" class="btn-outline">Call (208) 697-6295</a>
+        </div>
     </header>
 
     <div class="container">
@@ -210,7 +268,7 @@
             <div class="services">
                 <div class="service-card">
                     <h3>Weekly Mowing</h3>
-                    <p>Keep your lawn looking sharp year-round with our regular weekly maintenance service.</p>
+                    <p>Keep your lawn looking sharp all season long with regular weekly mowing.</p>
                 </div>
 
                 <div class="service-card">
@@ -225,12 +283,12 @@
 
                 <div class="service-card">
                     <h3>Spring/Fall Cleanup</h3>
-                    <p>Seasonal cleanup and landscaping work to prep your yard for the season.</p>
+                    <p>Seasonal cleanup to get your yard ready for spring or put it to bed for winter.</p>
                 </div>
             </div>
         </section>
 
-        <section class="form-section">
+        <section class="form-section" id="quote">
             <h2>Get a Free Quote</h2>
             <p style="margin-bottom: 20px;">Pricing varies based on lawn size. Fill out the form below and we'll assess your property and send you a custom quote for your lawn care needs.</p>
             
