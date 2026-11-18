@@ -280,6 +280,22 @@
             margin-bottom: 12px;
         }
 
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+        }
+
+        .photo-gallery img {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+            display: block;
+        }
+
         footer {
             background: #f8f9f7;
             padding: 20px;
@@ -383,6 +399,20 @@
                     <h3>Quick replies</h3>
                     <p>Quote requests usually get a reply within about an hour.</p>
                 </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2>Recent Work</h2>
+            <div class="photo-gallery">
+                <img src="images/lawn-1.jpg" alt="Striped, freshly mowed backyard lawn with fruit trees and a trampoline" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-2.jpg" alt="Mowed lawn with clean stripes and blue spruce trees" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-3.jpg" alt="Front lawn edged along a boulder border with flower pots on the steps" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-4.jpg" alt="Front lawn with a curved edge along the driveway" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-5.jpg" alt="Backyard lawn mowed in stripes beside a covered patio" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-6.jpg" alt="Trimmed lawn with curved concrete edging and a flower bed" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-7.jpg" alt="Freshly mowed front lawn beside the driveway and sidewalk" width="1200" height="900" loading="lazy">
+                <img src="images/lawn-8.jpg" alt="Freshly mowed lawn along a sidewalk in Kuna" width="1200" height="900" loading="lazy">
             </div>
         </section>
 
